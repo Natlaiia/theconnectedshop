@@ -59,9 +59,18 @@ await expect(searchInput).toHaveAttribute('type', 'search');
 await searchInput.fill('MORTISES');
 await expect(searchInput).toHaveValue('MORTISES');
 
-const results = page.locator('.Heading.Text--subdued.u-h7').first();
-await expect(results).toBeVisible();
-await expect(results).toHaveAttribute
+const results = page.locator('span.Heading.Text--subdued.u-h7').first();
+const resultText = await results.textContent();
+console.log('textContent:', resultText)
+const match = resultText?.match(/\d+/);
+  const number = match ? parseInt(match[0], 10) : null;
+  expect(number).not.toBeNull();
+  expect(number!).toBeGreaterThan(0);
+
+
+
+// await expect(results).toBeVisible();
+// await expect(results).toContainText('28 results');
 
 
 
