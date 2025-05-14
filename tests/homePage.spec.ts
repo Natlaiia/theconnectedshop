@@ -67,19 +67,24 @@ const match = resultText?.match(/\d+/);
   expect(number).not.toBeNull();
   expect(number!).toBeGreaterThan(0);
 
-
-
-// await expect(results).toBeVisible();
-// await expect(results).toContainText('28 results');
-
-
-
-
+  //ДЗ-2
 
 
 
 });
 
+
+
+test('Перевірка Search - пошук неіснуючого товару', async({page})=>{
+    await page.goto('https://theconnectedshop.com/'); //перехід на сайт
+    
+const searchClick = page.locator('a[data-action="toggle-search"]').first();
+await expect(searchClick).toBeVisible();
+await searchClick.click();
+
+
+
+});
 
 test('Перевірка Tab Menu', async({page})=>{
     await page.goto('https://theconnectedshop.com/'); //перехід на сайт
