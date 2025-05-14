@@ -67,10 +67,18 @@ const match = resultText?.match(/\d+/);
   expect(number).not.toBeNull();
   expect(number!).toBeGreaterThan(0);
 
+  const itemSearchMortises = page.locator('h2 > a[href="/products/mortises?_pos=1&_sid=b251f6b9c&_ss=r&variant=45941851193585"]').first();
+    // await page.waitForSelector(???????)
+    await expect(itemSearchMortises).toContainText('Mortises');
+    await itemSearchMortises.click();
+
+  
+
+
   //ДЗ-2
 
 
-
+// ('a[href="/account"]')
 });
 
 
